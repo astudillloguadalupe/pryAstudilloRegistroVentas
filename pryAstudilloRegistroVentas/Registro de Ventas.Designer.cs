@@ -38,6 +38,7 @@
             lstProducto = new ComboBox();
             mtbPrecioUnitario = new MaskedTextBox();
             nudCantidad = new NumericUpDown();
+            lblResultado = new Label();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             SuspendLayout();
             // 
@@ -95,6 +96,7 @@
             btnRegistrar.TabIndex = 5;
             btnRegistrar.Text = "&Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // dtpFecha
             // 
@@ -105,9 +107,7 @@
             // 
             // lstProducto
             // 
-            lstProducto.Enabled = false;
             lstProducto.FormattingEnabled = true;
-            lstProducto.Items.AddRange(new object[] { "hola ", "chau " });
             lstProducto.Location = new Point(164, 95);
             lstProducto.Name = "lstProducto";
             lstProducto.Size = new Size(121, 23);
@@ -121,21 +121,31 @@
             mtbPrecioUnitario.Size = new Size(100, 23);
             mtbPrecioUnitario.TabIndex = 8;
             mtbPrecioUnitario.MaskInputRejected += mtbPrecioUnitario_MaskInputRejected;
+            mtbPrecioUnitario.KeyUp += nudCantidad_KeyUp;
             // 
             // nudCantidad
             // 
-            nudCantidad.Enabled = false;
             nudCantidad.Location = new Point(164, 154);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(38, 23);
             nudCantidad.TabIndex = 9;
             nudCantidad.ValueChanged += nudCantidad_ValueChanged;
+            nudCantidad.KeyUp += nudCantidad_KeyUp;
+            // 
+            // lblResultado
+            // 
+            lblResultado.AutoSize = true;
+            lblResultado.Location = new Point(31, 301);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(0, 15);
+            lblResultado.TabIndex = 10;
             // 
             // frmRegistroVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(525, 284);
+            ClientSize = new Size(525, 409);
+            Controls.Add(lblResultado);
             Controls.Add(nudCantidad);
             Controls.Add(mtbPrecioUnitario);
             Controls.Add(lstProducto);
@@ -148,6 +158,7 @@
             Controls.Add(lblFecha);
             Name = "frmRegistroVentas";
             Text = "Registro_de_Ventas";
+            Load += frmRegistroVentas_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -165,5 +176,6 @@
         private ComboBox lstProducto;
         private MaskedTextBox mtbPrecioUnitario;
         private NumericUpDown nudCantidad;
+        private Label lblResultado;
     }
 }
