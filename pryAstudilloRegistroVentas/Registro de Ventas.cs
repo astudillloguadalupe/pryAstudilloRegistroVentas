@@ -69,7 +69,7 @@ namespace pryAstudilloRegistroVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimpiarControles()
+          
         }
 
         private void frmRegistroVentas_Load(object sender, EventArgs e)

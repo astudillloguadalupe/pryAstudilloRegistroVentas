@@ -134,10 +134,10 @@
             // 
             // lblResultado
             // 
-            lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(31, 301);
+            lblResultado.BorderStyle = BorderStyle.Fixed3D;
+            lblResultado.Location = new Point(12, 296);
             lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(0, 15);
+            lblResultado.Size = new Size(279, 84);
             lblResultado.TabIndex = 10;
             // 
             // frmRegistroVentas
