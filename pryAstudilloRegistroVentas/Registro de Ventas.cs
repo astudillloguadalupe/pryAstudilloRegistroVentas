@@ -69,20 +69,30 @@ namespace pryAstudilloRegistroVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-          
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                lstProducto.SelectedIndex = -1;
+                nudCantidad.Value = 0;
+                mtbPrecioUnitario.Clear();
+                mtbPrecioUnitario.Enabled = false;
+                nudCantidad.Enabled = false;
+                dtpFecha.Value = DateTime.Now;
+                lstProducto.Focus();
+            }
+           
         }
 
         private void frmRegistroVentas_Load(object sender, EventArgs e)
         {
 
 
-            lstProducto.Items.Add("Gabinete");
-            lstProducto.Items.Add("cpu");
-            lstProducto.Items.Add("ram");
+            lstProducto.Items.Add("GABINETE");
+            lstProducto.Items.Add("CPU");
+            lstProducto.Items.Add("RAM");
 
             nudCantidad.Enabled = false;
             mtbPrecioUnitario.Enabled = false;
-            btnCancelar.Enabled = false;
+            
         }
 
         private void nudCantidad_KeyUp(object sender, KeyEventArgs e)
@@ -97,12 +107,12 @@ namespace pryAstudilloRegistroVentas
             vCantidad = Convert.ToInt32(nudCantidad.Value);
             vPrecio = Convert.ToInt32(mtbPrecioUnitario.Text);
 
-            //Mostrar resultados
             lblResultado.Text +=
-                vFecha + "" + vProducto
-                + " " + vCantidad + " " + vPrecio + "$" + vPrecio;
+                 vFecha + " " + vProducto
+                 + " " + "Cantidad: " + vCantidad + " " + "$" + vPrecio + "\n";
+            LimpiarControles();
         }
-        private void LImpiarControles()
+        private void LimpiarControles()
         {
             dtpFecha.Value = DateTime.Now;
             lstProducto.SelectedIndex = -1;
