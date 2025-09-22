@@ -90,6 +90,7 @@
             // 
             // btnRegistrar
             // 
+            btnRegistrar.Enabled = false;
             btnRegistrar.Location = new Point(56, 264);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);

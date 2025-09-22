@@ -65,6 +65,10 @@ namespace pryAstudilloRegistroVentas
             {
                 btnRegistrar.Enabled = true;
             }
+            else
+            {
+                btnRegistrar.Enabled = false;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
