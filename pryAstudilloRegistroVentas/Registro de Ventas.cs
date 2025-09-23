@@ -38,14 +38,7 @@ namespace pryAstudilloRegistroVentas
 
         private void lstProducto_TextChanged(object sender, EventArgs e)
         {
-            if (lstProducto.Text != "")
-            {
-                nudCantidad.Enabled = true;
-            }
-            else
-            {
-                nudCantidad.Enabled = false;
-            }
+            
         }
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
@@ -69,7 +62,7 @@ namespace pryAstudilloRegistroVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimpiarControles()
+            LimpiarControles();
         }
 
         private void frmRegistroVentas_Load(object sender, EventArgs e)
@@ -82,7 +75,8 @@ namespace pryAstudilloRegistroVentas
 
             nudCantidad.Enabled = false;
             mtbPrecioUnitario.Enabled = false;
-            btnCancelar.Enabled = false;
+            btnRegistrar.Enabled = false;
+            btnCancelar.Enabled = true;
         }
 
         private void nudCantidad_KeyUp(object sender, KeyEventArgs e)
@@ -94,21 +88,23 @@ namespace pryAstudilloRegistroVentas
         {
             vFecha = dtpFecha.Value;
             vProducto = lstProducto.Text;
-            vCantidad = Convert.ToInt32(nudCantidad.Value);
-            vPrecio = Convert.ToInt32(mtbPrecioUnitario.Text);
-
+           
             //Mostrar resultados
-            lblResultado.Text +=
-                vFecha + "" + vProducto
-                + " " + vCantidad + " " + vPrecio + "$" + vPrecio;
+            lstRegistro.Items.Add("Fecha:" + " " + dtpFecha.Text);
+            lstRegistro.Items.Add("Producto:" + " " + lstProducto.SelectedItem);
+            lstRegistro.Items.Add("Cantidad:" + " " + nudCantidad.Value);
+            lstRegistro.Items.Add("Precio:$" + " " + mtbPrecioUnitario.Text + "\n");
+
         }
-        private void LImpiarControles()
+        private void LimpiarControles()
         {
             dtpFecha.Value = DateTime.Now;
             lstProducto.SelectedIndex = -1;
             nudCantidad.Value = 0;
-            mtbPrecioUnitario.Text = "";
-
+            nudCantidad.Enabled = false;
+            mtbPrecioUnitario.Clear();
+            mtbPrecioUnitario.Enabled = false;
+            btnRegistrar.Enabled = false;
             lstProducto.Focus();
         }
     }
