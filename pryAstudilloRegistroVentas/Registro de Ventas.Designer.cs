@@ -83,7 +83,7 @@
             btnCancelar.Location = new Point(245, 264);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 4;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
@@ -94,7 +94,7 @@
             btnRegistrar.Location = new Point(56, 264);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);
-            btnRegistrar.TabIndex = 5;
+            btnRegistrar.TabIndex = 4;
             btnRegistrar.Text = "&Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
             btnRegistrar.Click += btnRegistrar_Click;
@@ -104,7 +104,7 @@
             dtpFecha.Location = new Point(130, 49);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(200, 23);
-            dtpFecha.TabIndex = 6;
+            dtpFecha.TabIndex = 0;
             // 
             // lstProducto
             // 
@@ -113,16 +113,16 @@
             lstProducto.Location = new Point(130, 97);
             lstProducto.Name = "lstProducto";
             lstProducto.Size = new Size(200, 23);
-            lstProducto.TabIndex = 7;
+            lstProducto.TabIndex = 1;
             lstProducto.SelectedIndexChanged += lstProducto_SelectedIndexChanged;
             // 
             // mtbPrecioUnitario
             // 
             mtbPrecioUnitario.Location = new Point(130, 202);
-            mtbPrecioUnitario.Mask = "99999";
+            mtbPrecioUnitario.Mask = "99999$";
             mtbPrecioUnitario.Name = "mtbPrecioUnitario";
             mtbPrecioUnitario.Size = new Size(200, 23);
-            mtbPrecioUnitario.TabIndex = 8;
+            mtbPrecioUnitario.TabIndex = 3;
             mtbPrecioUnitario.ValidatingType = typeof(int);
             mtbPrecioUnitario.MaskInputRejected += mtbPrecioUnitario_MaskInputRejected;
             mtbPrecioUnitario.KeyUp += nudCantidad_KeyUp;
@@ -132,7 +132,7 @@
             nudCantidad.Location = new Point(130, 151);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(200, 23);
-            nudCantidad.TabIndex = 9;
+            nudCantidad.TabIndex = 2;
             nudCantidad.ValueChanged += nudCantidad_ValueChanged;
             nudCantidad.KeyUp += nudCantidad_KeyUp;
             // 
@@ -163,7 +163,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "frmRegistroVentas";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registro_de_Ventas";
+            Text = "Registro de Ventas";
             Load += frmRegistroVentas_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
