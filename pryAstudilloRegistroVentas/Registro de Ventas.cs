@@ -17,6 +17,17 @@ namespace pryAstudilloRegistroVentas
             InitializeComponent();
         }
 
+        struct RegistroVentas
+        {
+            public DateTime Fecha;
+            public string Producto;
+            public int Cantidad;
+            public int PrecioUnitario;
+            
+        }
+        
+        RegistroVentas[] vectorVentas = new RegistroVentas[10];
+        int indice = 0;
         DateTime vFecha = DateTime.Now;
         string vProducto = "";
         int vCantidad = 0;
@@ -88,7 +99,45 @@ namespace pryAstudilloRegistroVentas
         {
             vFecha = dtpFecha.Value;
             vProducto = lstProducto.Text;
-           
+            if (lstProducto.SelectedIndex == -1 || nudCantidad.Value == 0 || mtbPrecioUnitario.Text == "")
+            {
+                MessageBox.Show("Faltan completar datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (indice >= 10)
+            {
+                MessageBox.Show("El vector de ventas está completo (10 registros).", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            vectorVentas[indice].Fecha = dtpFecha.Value;
+            vectorVentas[indice].Producto = lstProducto.Text;
+            vectorVentas[indice].Cantidad = Convert.ToInt32(nudCantidad.Value);
+            int precioUnitario;
+            if (int.TryParse(mtbPrecioUnitario.Text.Trim(), out precioUnitario))
+            {
+                vectorVentas[indice].PrecioUnitario = precioUnitario;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un precio unitario válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            lblResultado.Text +=
+                vectorVentas[indice].Fecha.ToShortDateString() + " - " +
+                vectorVentas[indice].Producto + " | " +
+                "Cantidad: " + vectorVentas[indice].Cantidad + " | " +
+                "Precio: $" + vectorVentas[indice].PrecioUnitario + "\n";
+
+
+            indice++;
+
+            LimpiarControles();
+
             //Mostrar resultados
             lstRegistro.Items.Add("Fecha:" + " " + dtpFecha.Text);
             lstRegistro.Items.Add("Producto:" + " " + lstProducto.SelectedItem);

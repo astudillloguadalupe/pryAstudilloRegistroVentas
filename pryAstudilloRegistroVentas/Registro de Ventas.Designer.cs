@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroVentas));
             lblFecha = new Label();
             lblProducto = new Label();
             lblCantidad = new Label();
@@ -91,6 +92,7 @@
             // 
             // btnRegistrar
             // 
+            btnRegistrar.Enabled = false;
             btnRegistrar.Location = new Point(87, 262);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);
@@ -171,9 +173,10 @@
             Controls.Add(lblProducto);
             Controls.Add(lblFecha);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmRegistroVentas";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registro_de_Ventas";
+            Text = "Registro de Ventas";
             Load += frmRegistroVentas_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
